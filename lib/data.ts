@@ -7,7 +7,8 @@ export interface Service {
   description: string;
   features: string[];
   price?: string;
-  category: "design" | "development" | "marketing" | "ai";
+  category: "branding" | "logo" | "website" | "uiux" | "pod" | "digital";
+  image: string;
   featured: boolean;
 }
 
@@ -44,35 +45,57 @@ export interface Experience {
 export const services: Service[] = [
   {
     id: "1",
-    title: "Creative Design",
-    description: "Stunning visual designs that capture your brand essence and engage your audience.",
-    features: ["Brand Identity", "Logo Design", "Marketing Materials", "Social Media Graphics"],
-    category: "design",
+    title: "Branding",
+    description: "Complete brand identity systems that tell your story and connect with your audience on a deeper level.",
+    features: ["Brand Strategy", "Visual Identity", "Brand Guidelines", "Collateral Design"],
+    category: "branding",
+    image: "/services/branding.jpg",
     featured: true,
   },
   {
     id: "2",
-    title: "Web Development",
-    description: "Full-stack web solutions built with modern technologies and best practices.",
-    features: ["Responsive Websites", "E-commerce", "Web Applications", "API Integration"],
-    category: "development",
+    title: "Logo Design",
+    description: "Distinctive, memorable logos that capture your brand essence in a single mark.",
+    features: ["Custom Logos", "Logo Variations", "Icon Design", "Typography"],
+    category: "logo",
+    image: "/services/logo-design.jpg",
     featured: true,
   },
   {
     id: "3",
-    title: "SEO & Growth",
-    description: "Data-driven strategies to increase visibility and drive organic growth.",
-    features: ["Technical SEO", "Content Strategy", "Marketplace Optimization", "Analytics"],
-    category: "marketing",
+    title: "Website Design",
+    description: "Modern, responsive websites that convert visitors into customers with stunning aesthetics.",
+    features: ["Landing Pages", "E-commerce", "Web Apps", "Responsive Design"],
+    category: "website",
+    image: "/services/website-design.jpg",
     featured: true,
   },
   {
     id: "4",
-    title: "AI Orchestration",
-    description: "Leveraging AI tools to automate workflows and enhance productivity.",
-    features: ["AI Integration", "Workflow Automation", "Prompt Engineering", "Custom Solutions"],
-    category: "ai",
-    featured: false,
+    title: "UI/UX Design",
+    description: "Intuitive user experiences and interfaces that delight users and drive engagement.",
+    features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
+    category: "uiux",
+    image: "/services/uiux-design.jpg",
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "Print on Demand",
+    description: "Custom merchandise designs ready for production on t-shirts, mugs, and more.",
+    features: ["T-Shirt Designs", "Merchandise", "Packaging", "Custom Products"],
+    category: "pod",
+    image: "/services/print-on-demand.jpg",
+    featured: true,
+  },
+  {
+    id: "6",
+    title: "Digital Products",
+    description: "Ready-to-sell digital assets including templates, graphics, and downloadable content.",
+    features: ["Templates", "Social Media Kits", "Ebooks", "Digital Downloads"],
+    category: "digital",
+    image: "/services/digital-products.jpg",
+    featured: true,
   },
 ];
 

@@ -1,21 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Palette, Code2, TrendingUp, Brain } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data";
+import Image from "next/image";
 
-const iconMap = {
-  design: Palette,
-  development: Code2,
-  marketing: TrendingUp,
-  ai: Brain,
-};
-
-const colorMap = {
-  design: "#D4AF37",
-  development: "#8B5CF6",
-  marketing: "#22D3EE",
-  ai: "#F59E0B",
+const colorMap: Record<string, string> = {
+  branding: "#D4AF37",
+  logo: "#8B5CF6",
+  website: "#22D3EE",
+  uiux: "#F59E0B",
+  pod: "#EC4899",
+  digital: "#10B981",
 };
 
 const container = {
@@ -23,7 +19,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -56,11 +52,11 @@ export function ServicesSection() {
           <span className="inline-block px-4 py-2 rounded-full border border-[#2A2A2A] bg-[#111111]/50 text-[#888888] text-xs font-medium tracking-widest uppercase mb-6">
             Services
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F5F5F5] mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F5F5F5] mb-6 tracking-tight text-balance">
             Engineered to Deliver
             <span className="text-[#D4AF37]">.</span>
           </h2>
-          <p className="text-[#666666] text-lg">
+          <p className="text-[#666666] text-lg leading-relaxed">
             Clarity, Depth, and Control. A unique blend of traditional craftsmanship 
             and modern digital expertise.
           </p>
@@ -68,69 +64,92 @@ export function ServicesSection() {
 
         {/* Services Grid */}
         <motion.div 
-          className="grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
           {services.map((service) => {
-            const Icon = iconMap[service.category];
             const color = colorMap[service.category];
             
             return (
               <motion.div
                 key={service.id}
-                className="group relative bg-[#111111] rounded-2xl p-8 border border-[#1A1A1A] hover:border-[#2A2A2A] transition-all duration-500 overflow-hidden"
+                className="group relative bg-[#111111] rounded-2xl border border-[#1A1A1A] hover:border-[#2A2A2A] transition-all duration-500 overflow-hidden cursor-pointer"
                 variants={item}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -8 }}
               >
-                {/* Hover glow */}
-                <motion.div 
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(circle at 50% 100%, ${color}08 0%, transparent 70%)`
-                  }}
-                />
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon & Arrow */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div 
-                      className="p-4 rounded-xl"
-                      style={{ backgroundColor: `${color}10` }}
-                    >
-                      <Icon className="w-6 h-6" style={{ color }} />
-                    </div>
-                    <motion.div
-                      className="w-10 h-10 rounded-full border border-[#2A2A2A] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                      whileHover={{ scale: 1.1, backgroundColor: color }}
-                    >
-                      <ArrowUpRight className="w-4 h-4 text-[#F5F5F5]" />
-                    </motion.div>
+                {/* Image Container */}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/50 to-transparent" />
+                  
+                  {/* Category badge */}
+                  <div 
+                    className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm"
+                    style={{ 
+                      backgroundColor: `${color}20`,
+                      color: color,
+                      border: `1px solid ${color}40`
+                    }}
+                  >
+                    {service.category.toUpperCase()}
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-2xl font-bold text-[#F5F5F5] mb-3">
+                  {/* Arrow button */}
+                  <motion.div
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full border border-[#ffffff20] backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    whileHover={{ scale: 1.1, backgroundColor: color }}
+                  >
+                    <ArrowUpRight className="w-4 h-4 text-[#F5F5F5]" />
+                  </motion.div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-[#F5F5F5] mb-3 group-hover:text-[#D4AF37] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-[#666666] mb-6 leading-relaxed">
+                  
+                  {/* Description */}
+                  <p className="text-[#666666] text-sm mb-5 leading-relaxed line-clamp-2">
                     {service.description}
                   </p>
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature, idx) => (
+                    {service.features.slice(0, 3).map((feature, idx) => (
                       <span 
                         key={idx}
-                        className="px-3 py-1.5 text-xs font-medium rounded-full bg-[#0A0A0A] text-[#888888] border border-[#1A1A1A]"
+                        className="px-2.5 py-1 text-[10px] font-medium rounded-full bg-[#0A0A0A] text-[#888888] border border-[#1A1A1A]"
                       >
                         {feature}
                       </span>
                     ))}
+                    {service.features.length > 3 && (
+                      <span className="px-2.5 py-1 text-[10px] font-medium rounded-full bg-[#0A0A0A] text-[#666666] border border-[#1A1A1A]">
+                        +{service.features.length - 3}
+                      </span>
+                    )}
                   </div>
                 </div>
+
+                {/* Bottom accent line */}
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 h-[2px] origin-left"
+                  style={{ backgroundColor: color }}
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.div>
             );
           })}
