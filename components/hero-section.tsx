@@ -57,10 +57,10 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="lg:grid-cols-7 gap-8 lg:gap-12 items-center">
           {/* Left Content - Main Hero */}
           <motion.div 
-            className="lg:col-span-7 space-y-8"
+            className="space-y-8"
             variants={stagger}
             initial="initial"
             animate="animate"
@@ -76,22 +76,26 @@ export function HeroSection() {
             </motion.div>
             
             {/* Main Headline */}
-            <motion.h1 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tighter"
-              variants={fadeInUp}
-            >
-              <span className="text-[#F5F5F5] block">THE</span>
-              <span className="text-[#F5F5F5] block">FUTURE OF</span>
-              <span className="text-[#D4AF37] block">DESIGN</span>
-            </motion.h1>
+            <motion.div variants={fadeInUp}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tighter">
+                <span className="text-[#F5F5F5] block">THE</span>
+                <span className="text-[#F5F5F5] block">FUTURE OF</span>
+                <span className="text-[#D4AF37] block">DESIGN</span>
+              </h1>
+              <p className="text-lg md:text-xl text-[#D4AF37] font-semibold mt-6">
+                Abdellah Ait Lahbib
+              </p>
+              <p className="text-base md:text-lg text-[#888888] font-medium">
+                Digital Artisan & Vibe Coder
+              </p>
+            </motion.div>
             
             {/* Subtext */}
             <motion.p 
               className="text-base md:text-lg text-[#666666] max-w-md leading-relaxed"
               variants={fadeInUp}
             >
-              Digital Artisan & Full-Stack Vibe Coder. Bridging traditional 
-              craftsmanship with cutting-edge digital architecture.
+              Bridging traditional craftsmanship with cutting-edge digital architecture.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -127,70 +131,6 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </motion.div>
-          </motion.div>
-
-          {/* Right Content - Featured Card + Controls */}
-          <motion.div 
-            className="lg:col-span-5 relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            {/* Profile/Hero Image Area */}
-            <div className="relative aspect-[4/5] max-w-md mx-auto">
-              {/* Decorative ring */}
-              <motion.div 
-                className="absolute -right-4 top-1/4 w-24 h-24 border border-[#2A2A2A] rounded-full flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <motion.div
-                  className="absolute w-3 h-3 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </motion.div>
-
-              {/* Arrow button */}
-              <motion.button 
-                className="absolute -right-2 top-1/4 translate-y-8 w-12 h-12 bg-[#F5F5F5] rounded-full flex items-center justify-center z-10 shadow-lg"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowUpRight className="w-5 h-5 text-[#0A0A0A]" />
-              </motion.button>
-
-              {/* Main visual card */}
-              <div className="relative h-full bg-gradient-to-br from-[#1A1A1A] to-[#111111] rounded-3xl overflow-hidden border border-[#2A2A2A]">
-                {/* Inner content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
-                    
-                    {/* Abstract visual representation */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div 
-                        className="relative"
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#D4AF37]/30 to-[#8B5CF6]/30 blur-2xl absolute -inset-10" />
-                        <div className="w-40 h-40 rounded-full border border-[#D4AF37]/40 flex items-center justify-center backdrop-blur-sm">
-                          <span className="text-5xl font-bold bg-gradient-to-br from-[#D4AF37] to-[#F5D78B] bg-clip-text text-transparent">
-                            AA
-                          </span>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom info */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                  <div className="text-[#F5F5F5] font-semibold text-lg">Abdellah Ait Lahbib</div>
-                  <div className="text-[#888888] text-sm">Digital Artisan & Vibe Coder</div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 
