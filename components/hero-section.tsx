@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Sparkles, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { services } from "@/lib/data";
 
@@ -57,10 +56,10 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 container mx-auto px-6 lg:px-12">
-        <div className="lg:grid-cols-7 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Content - Main Hero */}
           <motion.div 
-            className="space-y-8"
+            className="lg:col-span-6 space-y-8"
             variants={stagger}
             initial="initial"
             animate="animate"
@@ -77,7 +76,7 @@ export function HeroSection() {
             
             {/* Main Headline */}
             <motion.div variants={fadeInUp}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tighter">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold leading-[0.9] tracking-tighter">
                 <span className="text-[#F5F5F5] block">THE</span>
                 <span className="text-[#F5F5F5] block">FUTURE OF</span>
                 <span className="text-[#D4AF37] block">DESIGN</span>
@@ -131,6 +130,56 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </motion.div>
+          </motion.div>
+
+          {/* Right Content - Profile Image */}
+          <motion.div 
+            className="lg:col-span-6 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative w-full max-w-md">
+              {/* Decorative background elements */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37]/20 to-[#8B5CF6]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Animated border glow */}
+              <motion.div 
+                className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#D4AF37]/30 to-[#8B5CF6]/30"
+                animate={{ 
+                  opacity: [0.5, 0.8, 0.5],
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              {/* Image container */}
+              <div className="relative rounded-3xl overflow-hidden border border-[#2A2A2A] bg-[#111111]">
+                <Image 
+                  src="/profile.png" 
+                  alt="Abdellah Ait Lahbib - Digital Artisan & Vibe Coder"
+                  width={600}
+                  height={700}
+                  priority
+                  className="w-full h-auto object-cover"
+                  quality={95}
+                />
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-40" />
+              </div>
+
+              {/* Accent elements */}
+              <motion.div 
+                className="absolute -top-4 -right-4 w-20 h-20 border border-[#D4AF37]/40 rounded-full flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <motion.div
+                  className="absolute w-2 h-2 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
