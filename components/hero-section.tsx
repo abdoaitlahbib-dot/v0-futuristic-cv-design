@@ -141,44 +141,38 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative w-full max-w-md">
-              {/* Decorative background elements */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#D4AF37]/20 to-[#8B5CF6]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Animated border glow */}
+            <div className="relative w-full max-w-2xl h-[600px]">
+              {/* Animated border glow - subtle accent */}
               <motion.div 
-                className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#D4AF37]/30 to-[#8B5CF6]/30"
+                className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-[#8B5CF6]/20 blur-3xl"
                 animate={{ 
-                  opacity: [0.5, 0.8, 0.5],
-                  scale: [1, 1.02, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               
-              {/* Image container */}
-              <div className="relative rounded-3xl overflow-hidden border border-[#2A2A2A] bg-[#111111]">
+              {/* Image container - transparent background */}
+              <div className="relative w-full h-full flex items-center justify-center">
                 <Image 
                   src="/profile.png" 
                   alt="Abdellah Ait Lahbib - Digital Artisan & Vibe Coder"
                   width={600}
                   height={700}
                   priority
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-contain drop-shadow-2xl"
                   quality={95}
                 />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-40" />
               </div>
 
               {/* Accent elements */}
               <motion.div 
-                className="absolute -top-4 -right-4 w-20 h-20 border border-[#D4AF37]/40 rounded-full flex items-center justify-center"
+                className="absolute -top-8 -right-8 w-24 h-24 border border-[#D4AF37]/40 rounded-full flex items-center justify-center"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
                 <motion.div
-                  className="absolute w-2 h-2 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  className="absolute w-3 h-3 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 />
               </motion.div>
             </div>
