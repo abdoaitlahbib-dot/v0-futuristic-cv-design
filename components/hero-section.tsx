@@ -18,8 +18,6 @@ const stagger = {
 };
 
 export function HeroSection() {
-  const featuredServices = services.filter(s => s.featured).slice(0, 2);
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
       {/* Background */}
