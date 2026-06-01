@@ -7,7 +7,7 @@ export interface Service {
   description: string;
   features: string[];
   price?: string;
-  category: "branding" | "logo" | "website" | "uiux" | "pod" | "digital" | "automation";
+  category: "branding" | "logo" | "website" | "uiux" | "pod" | "digital";
   image: string;
   featured: boolean;
 }
@@ -80,21 +80,12 @@ export const services: Service[] = [
     featured: true,
   },
   {
-    id: "5",
-    title: "Print on Demand",
-    description: "Custom merchandise designs ready for production on t-shirts, mugs, and more.",
-    features: ["T-Shirt Designs", "Merchandise", "Packaging", "Custom Products"],
-    category: "pod",
-    image: "/services/print-on-demand.jpg",
-    featured: true,
-  },
-  {
-    id: "7",
-    title: "Automation",
-    description: "Ready-to-sell digital assets including templates, graphics, and downloadable content.",
-    features: ["Workflow Setup", "n8n Integration", "Process Automation", "Task Optimization"],
-    category: "automation",
-    image: "/services/automation.png",
+    id: "6",
+    title: "Digital Assets & Automations",
+    description: "Ready-to-sell digital assets, templates, graphics, downloadable content, and workflow automation solutions.",
+    features: ["Templates", "Social Media Kits", "Ebooks", "Digital Downloads", "Workflow Setup", "n8n Integration"],
+    category: "digital",
+    image: "/services/digital-products.jpg",
     featured: true,
   },
 ];
