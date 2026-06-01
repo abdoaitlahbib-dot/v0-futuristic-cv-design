@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { services } from "@/lib/data";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -132,50 +130,6 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </motion.div>
-          </motion.div>
-
-          {/* Right Content - Profile Image */}
-          <motion.div 
-            className="lg:col-span-6 flex justify-center lg:justify-end"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="relative w-full max-w-2xl h-[600px]">
-              {/* Animated border glow - subtle accent */}
-              <motion.div 
-                className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-[#8B5CF6]/20 blur-3xl"
-                animate={{ 
-                  opacity: [0.3, 0.5, 0.3],
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              {/* Image container - transparent background */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Image 
-                  src="/profile.png" 
-                  alt="Abdellah Ait Lahbib - Digital Artisan & Vibe Coder"
-                  width={600}
-                  height={700}
-                  priority
-                  className="w-full h-full object-contain drop-shadow-2xl"
-                  quality={95}
-                />
-              </div>
-
-              {/* Accent elements */}
-              <motion.div 
-                className="absolute -top-8 -right-8 w-24 h-24 border border-[#D4AF37]/40 rounded-full flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <motion.div
-                  className="absolute w-3 h-3 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
-              </motion.div>
-            </div>
           </motion.div>
         </div>
 

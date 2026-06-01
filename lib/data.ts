@@ -7,7 +7,7 @@ export interface Service {
   description: string;
   features: string[];
   price?: string;
-  category: "branding" | "logo" | "website" | "uiux" | "pod" | "digital";
+  category: "branding" | "logo" | "website" | "uiux" | "pod" | "digital" | "automation";
   image: string;
   featured: boolean;
 }
@@ -89,12 +89,12 @@ export const services: Service[] = [
     featured: true,
   },
   {
-    id: "6",
-    title: "Digital Products",
+    id: "7",
+    title: "Automation",
     description: "Ready-to-sell digital assets including templates, graphics, and downloadable content.",
-    features: ["Templates", "Social Media Kits", "Ebooks", "Digital Downloads"],
-    category: "digital",
-    image: "/services/digital-products.jpg",
+    features: ["Workflow Setup", "n8n Integration", "Process Automation", "Task Optimization"],
+    category: "automation",
+    image: "/services/automation.png",
     featured: true,
   },
 ];
