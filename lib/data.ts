@@ -80,6 +80,15 @@ export const services: Service[] = [
     featured: true,
   },
   {
+    id: "5",
+    title: "Print on Demand",
+    description: "Custom merchandise designs ready for production on t-shirts, mugs, tote bags, and more.",
+    features: ["T-Shirt Designs", "Merchandise", "Packaging", "Custom Products"],
+    category: "pod",
+    image: "/services/print-on-demand.jpg",
+    featured: true,
+  },
+  {
     id: "6",
     title: "Digital Assets & Automations",
     description: "Ready-to-sell digital assets, templates, graphics, downloadable content, and workflow automation solutions.",
