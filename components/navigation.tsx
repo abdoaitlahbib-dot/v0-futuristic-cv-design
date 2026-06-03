@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/lib/data";
 
@@ -37,17 +38,18 @@ export function Navigation() {
             {/* Logo */}
             <motion.a 
               href="#" 
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-3"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="relative">
-                <Sparkles className="w-5 h-5 text-[#D4AF37]" />
-                <div className="absolute inset-0 w-5 h-5 bg-[#D4AF37] blur-md opacity-50" />
-              </div>
-              <span className="text-xl font-bold text-[#F5F5F5]">
-                Aity<span className="text-[#D4AF37]">Zin</span>
-              </span>
+              <Image 
+                src="/logo.png" 
+                alt="AityZin Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+                priority
+              />
             </motion.a>
 
             {/* Desktop Navigation */}

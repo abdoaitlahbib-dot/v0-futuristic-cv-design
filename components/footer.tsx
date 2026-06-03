@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles, Github, Linkedin, ExternalLink, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, ExternalLink, Mail, ArrowUp } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
 const socialLinks = [
@@ -33,13 +34,14 @@ export function Footer() {
             transition={{ duration: 0.5 }}
           >
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="relative">
-                <Sparkles className="w-6 h-6 text-[#D4AF37]" />
-                <div className="absolute inset-0 w-6 h-6 bg-[#D4AF37] blur-lg opacity-30" />
-              </div>
-              <span className="text-2xl font-bold text-[#F5F5F5]">
-                Aity<span className="text-[#D4AF37]">Zin</span>
-              </span>
+              <Image 
+                src="/logo.png" 
+                alt="AityZin Logo"
+                width={48}
+                height={48}
+                className="w-12 h-12"
+                priority
+              />
             </a>
             <p className="text-[#666666] mb-6 max-w-xs">
               Digital Artisan & Full-Stack Vibe Coder. Bridging traditional craftsmanship with cutting-edge digital solutions.
