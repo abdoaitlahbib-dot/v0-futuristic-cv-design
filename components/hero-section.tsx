@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -57,7 +58,7 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Content - Main Hero */}
           <motion.div 
-            className="lg:col-span-6 space-y-8"
+            className="lg:col-span-5 space-y-8"
             variants={stagger}
             initial="initial"
             animate="animate"
@@ -128,6 +129,52 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </motion.div>
+          </motion.div>
+
+          {/* Right Content - Hero Profile Image */}
+          <motion.div 
+            className="lg:col-span-7 flex items-end justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative w-full max-w-lg h-[600px]">
+              {/* Animated glow effect behind profile */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/20 to-transparent rounded-full blur-3xl"
+                animate={{ 
+                  opacity: [0.2, 0.4, 0.2],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              {/* Profile Image */}
+              <div className="relative w-full h-full flex items-end justify-center">
+                <Image 
+                  src="/hero-profile.png" 
+                  alt="Abdellah Ait Lahbib - Digital Artisan & Vibe Coder"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  quality={95}
+                />
+                
+                {/* Top gradient fade */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-transparent" />
+              </div>
+
+              {/* Decorative accent - top ring */}
+              <motion.div 
+                className="absolute -top-8 left-1/2 -translate-x-1/2 w-32 h-32 border-2 border-[#D4AF37]/30 rounded-full flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              >
+                <motion.div
+                  className="absolute w-3 h-3 bg-[#D4AF37] rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
