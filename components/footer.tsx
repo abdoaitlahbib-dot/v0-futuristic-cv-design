@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, ExternalLink, Mail, ArrowUp } from "lucide-react";
 import { navLinks } from "@/lib/data";
@@ -33,16 +32,6 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <Image 
-                src="/logo.png" 
-                alt="AityZin Logo"
-                width={48}
-                height={48}
-                className="w-12 h-12"
-                priority
-              />
-            </a>
             <p className="text-[#666666] mb-6 max-w-xs">
               Digital Artisan & Full-Stack Vibe Coder. Bridging traditional craftsmanship with cutting-edge digital solutions.
             </p>

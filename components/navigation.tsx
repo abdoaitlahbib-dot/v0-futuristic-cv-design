@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -35,23 +34,6 @@ export function Navigation() {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.a 
-              href="#" 
-              className="flex items-center gap-3"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Image 
-                src="/logo.png" 
-                alt="AityZin Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10"
-                priority
-              />
-            </motion.a>
-
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link, index) => (
